@@ -12,8 +12,6 @@ import javax.swing.table.DefaultTableModel;
 
 import utils.Triple;
 
-import net.miginfocom.swing.MigLayout;
-
 @SuppressWarnings("serial")
 public class DecompositionsView extends JPanel {
 	DecompositionsModel model;
@@ -30,7 +28,6 @@ public class DecompositionsView extends JPanel {
 		setAutoscrolls(true);
 		setBackground(Color.WHITE);
 		setFont(new Font("Arial", Font.PLAIN, 11));
-		setLayout(new MigLayout("", "[10000px]", "[10000px]"));
 		
 		//IceConnection.getInstance().connect();
 		JScrollPane scrollPane = new JScrollPane(table);
