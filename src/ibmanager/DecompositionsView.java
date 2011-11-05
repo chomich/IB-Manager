@@ -29,7 +29,6 @@ public class DecompositionsView extends JPanel {
 		setBackground(Color.WHITE);
 		setFont(new Font("Arial", Font.PLAIN, 11));
 		
-		//IceConnection.getInstance().connect();
 		JScrollPane scrollPane = new JScrollPane(table);
 		add( scrollPane, "cell 0 0,grow" );
 	}
