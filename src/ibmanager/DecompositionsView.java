@@ -12,15 +12,16 @@ import javax.swing.table.DefaultTableModel;
 import utils.Triple;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.SystemColor;
 
 @SuppressWarnings("serial")
-public class DecompositionsView extends JPanel {
-	DecompositionsModel model;
+public class DecompositionsView extends JPanel {	
 	private JTable table;
 	final String columnNames[] = { "ID", "Rule", "Comments" };
 	
 	public DecompositionsView() {
-		model = new DecompositionsModel(this);
+		@SuppressWarnings("unused")
+		DecompositionsController model = new DecompositionsController(this);
 		setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		setAlignmentX(Component.RIGHT_ALIGNMENT);
 		setAutoscrolls(true);
@@ -33,6 +34,8 @@ public class DecompositionsView extends JPanel {
 		add(panel);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		table = new JTable(new DefaultTableModel( new Object[][] {}, columnNames));
+		table.setGridColor(SystemColor.activeCaption);
+		table.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		panel.add(scrollPane);

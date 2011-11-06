@@ -10,11 +10,11 @@ import java.util.Observer;
 
 import utils.Triple;
 
-public class DecompositionsModel implements Observer {
+public class DecompositionsController implements Observer {
 
 	DecompositionsView view;
 	
-	public DecompositionsModel(DecompositionsView view) {
+	public DecompositionsController(DecompositionsView view) {
 		this.view = view;
 		Connection.getInstance().addObserver(this);
 	}
@@ -29,8 +29,8 @@ public class DecompositionsModel implements Observer {
 			} catch (SQLException e) {
 				System.err.println("Failed to get the list of decomposition rules. " + e.getMessage());
 			}
-			view.setValues(data);
 		}
+		view.setValues(data);
 	}
 
 }
