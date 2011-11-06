@@ -9,8 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import utils.Triple;
+import javax.swing.border.EmptyBorder;
+import java.awt.GridLayout;
 
 @SuppressWarnings("serial")
 public class DecompositionsView extends JPanel {
@@ -20,17 +21,22 @@ public class DecompositionsView extends JPanel {
 	
 	public DecompositionsView() {
 		model = new DecompositionsModel(this);
-		DefaultTableModel tableModel = new DefaultTableModel();
-		tableModel.setColumnIdentifiers(columnNames);
-		table = new JTable(tableModel);		
 		setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		setAlignmentX(Component.RIGHT_ALIGNMENT);
 		setAutoscrolls(true);
 		setBackground(Color.WHITE);
 		setFont(new Font("Arial", Font.PLAIN, 11));
 		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+		add(panel);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
+		table = new JTable(new DefaultTableModel( new Object[][] {}, columnNames));
+		
 		JScrollPane scrollPane = new JScrollPane(table);
-		add( scrollPane, "cell 0 0,grow" );
+		panel.add(scrollPane);
+		scrollPane.setBackground(Color.WHITE);
 	}
 	
 	public void setValues(List<Triple<String>> values) {

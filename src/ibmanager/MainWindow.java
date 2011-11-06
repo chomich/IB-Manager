@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 
 import utils.TabbedPaneUI;
+import javax.swing.BoxLayout;
 
 
 public class MainWindow {
@@ -106,7 +107,9 @@ public class MainWindow {
 		JComponent panel1 = makeTextPanel("tables");
 		tabbedPane.addTab("Tables", null, panel1, "");
 		tabbedPane.setIconAt(0, null);
-		tabbedPane.addTab("Decompositions", null, new DecompositionsView(), "");
+		DecompositionsView decompositionsView = new DecompositionsView();
+		tabbedPane.addTab("Decompositions", null, decompositionsView, "");
+		decompositionsView.setLayout(new BoxLayout(decompositionsView, BoxLayout.X_AXIS));
 		
 		frmIBManager.getContentPane().add(tabbedPane);
 				
